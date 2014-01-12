@@ -1,3 +1,9 @@
+This is the __README.md__ file
+--------------------------
+
+_Code for computing triangle deformations._
+
+
 Versions of python and related pkgs: I used the following versions, but it may work for others.
 	
 	 python 2.7
