@@ -1,7 +1,10 @@
 Versions of python and related pkgs:
 	I used the following versions, but it may work for others.
+	
 	 python 2.7
+	 
 	 cython 0.19.1
+	 
 	 numpy 1.8.0
  
 Instructions:
@@ -10,8 +13,11 @@ Instructions:
 In the terminal: 
 
 cd cy/rodrigues/
+
 make
+
 cd ../rot_btwn_two_vecs/
+
 make
 
 Now, in the main directory, try:
