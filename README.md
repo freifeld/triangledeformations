@@ -18,7 +18,7 @@ Now, in the main directory, try:
 python simple.py
 
 If you get no errors, it means that the code is working. 
-Inside simple.py, at the end of the file (i.e., after the "if __name__ == ...")
+Inside simple.py, at the end of the file
 you will see how to use the code. 
 The important thing is the call:
 Simple.compute_deformations(Xs,Ys,Rxs,Rys,As,Ss,Qs)    
