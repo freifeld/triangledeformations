@@ -194,6 +194,16 @@ class Simple(object):
     def compute_canonical_rotation(cls,edges):
         """
         Returns: rmat
+        
+        Remark:         
+            There is another way to do it (using cross product)
+            which is simpler code and understand. 
+            However, that other method turned out to be slower (at least in 
+            python). I suspect that in cython or Julia the other method would 
+            in fact be faster. But this is still in the TODO list. 
+            
+            Oren Freifeld, 01/12/2014 
+        
         """
         if edges.dtype != my_dtype:
             raise ValueError('Expected type {0}; got {1} instead.'.format(my_dtype,edges.dtype))
@@ -239,8 +249,8 @@ class Simple(object):
         
         rmat_step2 = Aux._rmat_step2
         rmat_step2[:] = ([[1, 0 ,0 ],
-                         [0,+c,-s ],
-                         [0,+s,+c ]])                    
+                          [0,+c,-s ],
+                          [0,+s,+c ]])                    
        
         return multiply(rmat_step2,rmat_step1) 
         
