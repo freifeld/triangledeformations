@@ -196,8 +196,8 @@ class Simple(object):
         Returns: rmat
         
         Remark:         
-            There is another way to do it (using cross product)
-            which is simpler code and understand. 
+            There is also another way to do it (using cross product)
+            which is simpler to code and understand. 
             However, that other method turned out to be slower (at least in 
             python). I suspect that in cython or Julia the other method would 
             in fact be faster. But this is still in the TODO list. 
@@ -319,18 +319,20 @@ if __name__ == '__main__':
     print 
     
     # Verify
-    for i in xrange(nTriangles):
-        if i % 5000 == 0 or i == nTriangles-1:
-            print i
-        # input
-        X = Xs[i]
-        Y = Ys[i]                     
-        # output
-        Q = Qs[i]
-                         
-        Simple.verify_QX_equals_Y(X,Y,Q)    
+    if 1:
+        print "Verify QX=Y:"
+        for i in xrange(nTriangles):
+            if i % 5000 == 0 or i == nTriangles-1:
+                print i+1,'/',nTriangles
+            # input
+            X = Xs[i]
+            Y = Ys[i]                     
+            # output
+            Q = Qs[i]
+                             
+            Simple.verify_QX_equals_Y(X,Y,Q)    
         
-    print 'Verification done.'   
+        print 'Verification done.'   
     
         
     
