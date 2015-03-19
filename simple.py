@@ -7,28 +7,25 @@ Email: freifeld@dam.brown.edu
 """
 
 import numpy as np
-import scipy as sp
 multiply = np.dot
 _lsqrt = np.sqrt
 _lcos = np.cos
 _lsin = np.sin
-from numpy.linalg.linalg import norm
+#from numpy.linalg.linalg import norm
 
-from get_ipshell import ipshell 
 
 
 # If there are problems with the imports or functions from the cy.<module_name>
 # modules, you may need to step  into these directories, and run
 # "make clean" followed by "make". 
 
-#from cy.rot_btwn_two_vecs.rot_btwn_two_vecs import rvec_btwn_two_vecs,rmat_btwn_two_vecs
-#from cy.rodrigues import SO3so3
 
-import Cython
-cython_version = Cython.__version__
+
+#import Cython
+#cython_version = Cython.__version__
 
 from cy.rodrigues import SO3so3
-from cy.rot_btwn_two_vecs.rot_btwn_two_vecs import rvec_btwn_two_vecs,rmat_btwn_two_vecs
+from cy.rot_btwn_two_vecs.rot_btwn_two_vecs import rmat_btwn_two_vecs
 
 
 
@@ -97,8 +94,10 @@ class Simple(object):
         Return Q.
         This assumes Rx and Ry have been pre-computed. 01/11/2014
         """
-        Rx[:] = Simple.compute_canonical_rotation(X)  
-        Ry[:] = Simple.compute_canonical_rotation(Y)    
+#        Rx[:] = Simple.compute_canonical_rotation(X)  
+#        Ry[:] = Simple.compute_canonical_rotation(Y)    
+        Simple.compute_canonical_rotation(X,out=Rx)  
+        Simple.compute_canonical_rotation(Y,out=Ry)   
 
         if tf_verify_checks:
             Simple.verify_is_canonical(Rx.dot(X))
@@ -112,7 +111,7 @@ class Simple(object):
             Simple.verify_ASX_equals_Y(Rx.dot(X),Ry.dot(Y),A,S)
      
          # Technically, using eye*S should have 
-         # worked, as Rx time X should lie in the xy plane. 
+         # worked too, as Rx time X should lie in the xy plane. 
          # However, due to accumlation of numerical errors
          # it is better to enforce 1 in the last entry. 
         AtimesS[:2,:2]=A[:2,:2]*S           
@@ -189,9 +188,10 @@ class Simple(object):
             raise ValueError           
         
         for X,R in zip(arr_of_edges,out):
-            R[:]=cls.compute_canonical_rotation(X)
+#            R[:]=cls.compute_canonical_rotation(X)
+            cls.compute_canonical_rotation(X,out=R)
     @classmethod
-    def compute_canonical_rotation(cls,edges):
+    def compute_canonical_rotation(cls,edges,out):
         """
         Returns: rmat
         
@@ -251,8 +251,8 @@ class Simple(object):
         rmat_step2[:] = ([[1, 0 ,0 ],
                           [0,+c,-s ],
                           [0,+s,+c ]])                    
-       
-        return multiply(rmat_step2,rmat_step1) 
+        rmat_step2.dot(rmat_step1,out=out)
+#        return multiply(rmat_step2,rmat_step1) 
         
     @classmethod
     def compute_deformations(cls,Xs,Ys,Rxs,Rys,As,Ss,Qs,verbose=False):    
@@ -273,7 +273,7 @@ class Simple(object):
             A = As[i]
             S = Ss[i]                              
              
-            Simple.compute_deformation(X,Y,Q,A,S,Rx,Ry)
+            Simple.compute_deformation(X,Y,Q,A,S,Rx,Ry,tf_verify_checks=0)
 
 
                 
@@ -312,7 +312,7 @@ if __name__ == '__main__':
     Simple.compute_canonical_rotations(Ys,out=Rys)
     
 
-    print "Compute deformation:"
+    print "Compute deformations:"
     Simple.compute_deformations(Xs,Ys,Rxs,Rys,As,Ss,Qs)      
     print 'Done.' 
     

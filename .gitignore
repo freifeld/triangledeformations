@@ -1,0 +1,9 @@
+# Ignore specific files
+
+
+# Use wildcards as well
+*pyc
+*~
+*.o
+*.c
+*.html
