@@ -1,4 +1,4 @@
-This is the __README.md__ file
+README.md
 --------------------------
 
 _Code for computing triangle deformations._
