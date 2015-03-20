@@ -4,7 +4,9 @@ README.md: Code for computing triangle deformations
 Author: Oren Freifeld.
 Email: freifeld.csail.mit.edu
 
-Usage of this code is subject to the terms specified in the license.txt file.
+The date in whihc this code repository has become public: 03/20/2015.
+
+Usage of this code repository is subject to the terms specified in the license.txt file.
 _____________________________________________________________________________
 
 
