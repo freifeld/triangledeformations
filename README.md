@@ -4,8 +4,10 @@ README.md
 _Code for computing triangle deformations._
 
 
-Versions of python and related pkgs: I used the following versions, but it may work for others.
-	
+OS/packages/versions/OS/versions requirements: tested on 
+
+	 Ubuntu 12.04
+
 	 python 2.7
 	 
 	 cython 0.19.1
@@ -14,30 +16,29 @@ Versions of python and related pkgs: I used the following versions, but it may w
  
 Instructions:
 
-In the terminal: 
+You first need to compile some cython files.
 
-	cd cy/rodrigues/
-
-	make
-
-	cd ../rot_btwn_two_vecs/
+	cd <where-you-put-this-repo>/triangledeformations/cy/rodrigues/
 
 	make
 
-Now, in the main directory, try:
+	cd c<where-you-put-this-repo>/triangledeformations/rot_btwn_two_vecs/
+
+	make
+
+Then:
+
+	cd <where-you-put-this-repo>/triangledeformations/
 
 	python simple.py
 
 If you get no errors, it means that the code is working. 
-Inside simple.py, at the end of the file
-you will see how to use the code. 
+Inside simple.py, at the end of the file, you will see how to use the code. 
 The important thing is the call:
 
 	Simple.compute_deformations(Xs,Ys,Rxs,Rys,As,Ss,Qs)    
 
-That's the only function you need to use.
-
-Please let me know if you get stuck.   
+That's probably the only function you will need to use.
 
 Oren Freifeld 
 
