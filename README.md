@@ -1,11 +1,27 @@
-This is the __README.md__ file
+README.md: Code for computing triangle deformations
 --------------------------
 
-_Code for computing triangle deformations._
+Author: Oren Freifeld.
+Email: freifeld.csail.mit.edu
+
+Usage of this code is subject to the terms specified in the license.txt file.
+_____________________________________________________________________________
 
 
-Versions of python and related pkgs: I used the following versions, but it may work for others.
-	
+
+It is based on [Freifeld and Black, ECCV 2012].
+For technical reasons, it is not the same code we used in that paper. However, it produces the same deformations.
+
+At the moment, note this is only a partial version of what we presented in the paper: at the moment, the only thing it does is taking pairs of traingles and compute the "Q" matrices and the corresponding (R,A,S) decompositions (see paper for details). 
+
+We intend to add other parts of the code (e.g., mesh synthesis, Lie algebra, exp/log, etc.) soon.
+
+
+
+OS/packages/versions/OS/versions requirements: tested on 
+
+	 Ubuntu 12.04
+
 	 python 2.7
 	 
 	 cython 0.19.1
@@ -14,32 +30,30 @@ Versions of python and related pkgs: I used the following versions, but it may w
  
 Instructions:
 
-In the terminal: 
+You first need to compile some cython files.
 
-	cd cy/rodrigues/
-
-	make
-
-	cd ../rot_btwn_two_vecs/
+	cd <where-you-put-this-repo>/triangledeformations/cy/rodrigues/
 
 	make
 
-Now, in the main directory, try:
+	cd c<where-you-put-this-repo>/triangledeformations/rot_btwn_two_vecs/
+
+	make
+
+Then:
+
+	cd <where-you-put-this-repo>/triangledeformations/
 
 	python simple.py
 
 If you get no errors, it means that the code is working. 
-Inside simple.py, at the end of the file
-you will see how to use the code. 
+Inside simple.py, at the end of the file, you will see how to use the code. 
 The important thing is the call:
 
 	Simple.compute_deformations(Xs,Ys,Rxs,Rys,As,Ss,Qs)    
 
-That's the only function you need to use.
+That's probably the only function you will need to use.
 
-Please let me know if you get stuck.   
-
-Oren Freifeld 
 
 
 
