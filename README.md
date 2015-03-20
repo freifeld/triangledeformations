@@ -4,7 +4,7 @@ README.md: Code for computing triangle deformations
 Author: Oren Freifeld.
 Email: freifeld.csail.mit.edu
 
-The date in whihc this code repository has become public: 03/20/2015.
+The date in which this code repository has become public: 03/20/2015.
 
 Usage of this code repository is subject to the terms specified in the license.txt file.
 _____________________________________________________________________________
@@ -16,6 +16,7 @@ For technical reasons, it is not the same code we used in that paper. However, i
 
 At the moment, note this is only a partial version of what we presented in the paper: at the moment, the only thing it does is taking pairs of traingles and compute the "Q" matrices and the corresponding (R,A,S) decompositions (see paper for details). 
 
+Remark added on 03/20/2015: 
 We intend to add other parts of the code (e.g., mesh synthesis, Lie algebra, exp/log, etc.) soon.
 
 
