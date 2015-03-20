@@ -1,7 +1,22 @@
-README.md
+README.md:
+Code for computing triangle deformations
 --------------------------
 
-_Code for computing triangle deformations._
+Author: Oren Freifeld.
+Email: freifeld.csail.mit.edu
+
+Usage of this code is subject to the terms specified in the license.txt file.
+_____________________________________________________________________________
+
+
+
+It is based on [Freifeld and Black, ECCV 2012].
+For technical reasons, it is not the same code we used in that paper. However, it produces the same deformations.
+
+At the moment, note this is only a partial version of what we presented in the paper: at the moment, the only thing it does is taking pairs of traingles and compute the "Q" matrices and the corresponding (R,A,S) decompositions (see paper for details). 
+
+We intend to add other parts of the code (e.g., mesh synthesis, Lie algebra, exp/log, etc.) soon.
+
 
 
 OS/packages/versions/OS/versions requirements: tested on 
@@ -40,7 +55,6 @@ The important thing is the call:
 
 That's probably the only function you will need to use.
 
-Oren Freifeld 
 
 
 
