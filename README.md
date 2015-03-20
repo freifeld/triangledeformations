@@ -1,5 +1,4 @@
-README.md:
-Code for computing triangle deformations
+README.md: Code for computing triangle deformations
 --------------------------
 
 Author: Oren Freifeld.
