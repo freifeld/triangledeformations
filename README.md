@@ -19,21 +19,26 @@ At the moment, note this is only a partial version of what we presented in the p
 Remark added on 03/20/2015: 
 We intend to add other parts of the code (e.g., mesh synthesis, Lie algebra, exp/log, etc.) soon.
 
+Requirements:
 
+	Cython, numpy, scipy, opencv
 
-OS/packages/versions/OS/versions requirements: tested on 
+Tested on 
 
-	 Ubuntu 12.04
+	 Ubuntu 12.04 
 
 	 python 2.7
 	 
 	 cython 0.19.1
 	 
 	 numpy 1.8.0
+	 
+	 opencv 2.4
+	 
  
 Instructions:
 
-You first need to compile some cython files.
+	You first need to compile some cython files.
 
 	cd <where-you-put-this-repo>/triangledeformations/cy/rodrigues/
 
@@ -43,19 +48,19 @@ You first need to compile some cython files.
 
 	make
 
-Then:
+	Then:
 
 	cd <where-you-put-this-repo>/triangledeformations/
 
 	python simple.py
 
-If you get no errors, it means that the code is working. 
-Inside simple.py, at the end of the file, you will see how to use the code. 
-The important thing is the call:
+	If you get no errors, it means that the code is working. 
+	Inside simple.py, at the end of the file, you will see how to use the code. 
+	The important thing is the call:
 
 	Simple.compute_deformations(Xs,Ys,Rxs,Rys,As,Ss,Qs)    
 
-That's probably the only function you will need to use.
+	That's probably the only function you will need to use.
 
 
 
